@@ -37,6 +37,11 @@ public sealed class tablet_calibration_stretch_area : tablet_calibration_base
         return input;
     }
 
+    private Vector2 apply_offset(Vector2 input)
+    {
+        return new Vector2(input.X + x_offset, input.Y + y_offset);
+    }
+
     public override event Action<IDeviceReport> Emit;
 
     public override void Consume(IDeviceReport value)
@@ -52,9 +57,9 @@ public sealed class tablet_calibration_stretch_area : tablet_calibration_base
 
     public Vector2 filter(Vector2 input) {
         if (disable_clamping) {
-            return from_unit_screen(quadrant_stretch(to_unit_screen(input)));
+            return from_unit_screen(quadrant_stretch(to_unit_screen(apply_offset(input))));
         }
-        return from_unit_screen(clamp(quadrant_stretch(to_unit_screen(input))));
+        return from_unit_screen(clamp(quadrant_stretch(to_unit_screen(apply_offset(input)))));
     }
 
     public override PipelinePosition Position => PipelinePosition.PostTransform;
@@ -78,6 +83,16 @@ public sealed class tablet_calibration_stretch_area : tablet_calibration_base
         ("Tablet Calibration Stretch Area:\n\n" +
         "The multiplier used to stretch the bottom of the tablet area's Y axis coordinates.")]
     public static float bottom_stretch { set; get; }
+
+    [Property("X Offset"), DefaultPropertyValue(0f), Unit("px"), ToolTip
+        ("Tablet Calibration Stretch Area:\n\n" +
+        "The offset used to move the center of the tablet area's X axis coordinates.")]
+    public static float x_offset { set; get; }
+
+    [Property("Y Offset"), DefaultPropertyValue(0f), Unit("px"), ToolTip
+        ("Tablet Calibration Stretch Area:\n\n" +
+        "The offset used to move the center of the tablet area's Y axis coordinates.")]
+    public static float y_offset { set; get; }
 
     [BooleanProperty("Disable Clamping", ""), ToolTip
         ("Tablet Calibration Stretch Area:\n\n" +
