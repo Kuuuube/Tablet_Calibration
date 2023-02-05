@@ -5,86 +5,82 @@ using System;
 using System.Numerics;
 
 
-namespace Tablet_Calibration
+namespace tablet_calibration;
+
+[PluginName("Tablet Calibration Stretch Tablet")]
+public sealed class tablet_calibration_stretch_tablet : tablet_calibration_base
 {
-    [PluginName("Tablet Calibration Stretch Tablet")]
-    public class Tablet_Calibration_Stretch_Tablet : Tablet_Calibration_Base
+    private Vector2 quadrant_stretch(Vector2 input)
     {
-        public Vector2 Quadrant_Stretch(Vector2 input)
-        {
-            switch (In_Quadrant(input)) {
-                case 1: {
-                    input.X *= Right_Stretch;
-                    input.Y *= Top_Stretch;
-                    break;
-                }
-                case 2: {
-                    input.X *= Left_Stretch;
-                    input.Y *= Top_Stretch;
-                    break;
-                }
-                case 3: {
-                    input.X *= Left_Stretch;
-                    input.Y *= Bottom_Stretch;
-                    break;
-                }
-                case 4: {
-                    input.X *= Right_Stretch;
-                    input.Y *= Bottom_Stretch;
-                    break;
-                }
-                default: {
-                    return input;
-                }
+        switch (in_quadrant(input)) {
+            case 1: {
+                input.X *= right_stretch;
+                input.Y *= top_stretch;
+                break;
             }
-            return input;
-        }
-
-        public override event Action<IDeviceReport> Emit;
-
-        public override void Consume(IDeviceReport value)
-        {
-            if (value is ITabletReport report)
-            {
-                report.Position = Filter(report.Position);
-                value = report;
+            case 2: {
+                input.X *= left_stretch;
+                input.Y *= top_stretch;
+                break;
             }
-
-            Emit?.Invoke(value);
-        }
-
-        public Vector2 Filter(Vector2 input) {
-            if (Disable_Clamping) {
-                return FromUnitTablet(Quadrant_Stretch(ToUnitTablet(input)));
+            case 3: {
+                input.X *= left_stretch;
+                input.Y *= bottom_stretch;
+                break;
             }
-            return FromUnitTablet(Clamp(Quadrant_Stretch(ToUnitTablet(input))));
+            case 4: {
+                input.X *= right_stretch;
+                input.Y *= bottom_stretch;
+                break;
+            }
         }
-
-        public override PipelinePosition Position => PipelinePosition.PreTransform;
-
-        [Property("Left Stretch Multiplier"), DefaultPropertyValue(1f), ToolTip
-            ("Tablet Calibration Stretch Tablet:\n\n" +
-            "The multiplier used to stretch the left side of the tablet's X axis coordinates.")]
-        public static float Left_Stretch { set; get; }
-
-        [Property("Right Stretch Multiplier"), DefaultPropertyValue(1f), ToolTip
-            ("Tablet Calibration Stretch Tablet:\n\n" +
-            "The multiplier used to stretch the right side of the tablet's X axis coordinates.")]
-        public static float Right_Stretch { set; get; }
-
-        [Property("Top Stretch Multiplier"), DefaultPropertyValue(1f), ToolTip
-            ("Tablet Calibration Stretch Tablet:\n\n" +
-            "The multiplier used to stretch the top of the tablet's Y axis coordinates.")]
-        public static float Top_Stretch { set; get; }
-
-        [Property("Bottom Stretch Multiplier"), DefaultPropertyValue(1f), ToolTip
-            ("Tablet Calibration Stretch Tablet:\n\n" +
-            "The multiplier used to stretch the bottom of the tablet's Y axis coordinates.")]
-        public static float Bottom_Stretch { set; get; }
-
-        [BooleanProperty("Disable Clamping", ""), ToolTip
-            ("Tablet Calibration Stretch Tablet:\n\n" +
-            "Allows the tablet coordinates to exceed the maximum tablet coordinates.")]
-        public static bool Disable_Clamping { set; get; }
+        return input;
     }
+
+    public override event Action<IDeviceReport> Emit;
+
+    public override void Consume(IDeviceReport value)
+    {
+        if (value is ITabletReport report)
+        {
+            report.Position = filter(report.Position);
+            value = report;
+        }
+
+        Emit?.Invoke(value);
+    }
+
+    public Vector2 filter(Vector2 input) {
+        if (disable_clamping) {
+            return from_unit_tablet(quadrant_stretch(to_unit_tablet(input)));
+        }
+        return from_unit_tablet(clamp(quadrant_stretch(to_unit_tablet(input))));
+    }
+
+    public override PipelinePosition Position => PipelinePosition.PreTransform;
+
+    [Property("Left Stretch Multiplier"), DefaultPropertyValue(1f), ToolTip
+        ("Tablet Calibration Stretch Tablet:\n\n" +
+        "The multiplier used to stretch the left side of the tablet's X axis coordinates.")]
+    public static float left_stretch { set; get; }
+
+    [Property("Right Stretch Multiplier"), DefaultPropertyValue(1f), ToolTip
+        ("Tablet Calibration Stretch Tablet:\n\n" +
+        "The multiplier used to stretch the right side of the tablet's X axis coordinates.")]
+    public static float right_stretch { set; get; }
+
+    [Property("Top Stretch Multiplier"), DefaultPropertyValue(1f), ToolTip
+        ("Tablet Calibration Stretch Tablet:\n\n" +
+        "The multiplier used to stretch the top of the tablet's Y axis coordinates.")]
+    public static float top_stretch { set; get; }
+
+    [Property("Bottom Stretch Multiplier"), DefaultPropertyValue(1f), ToolTip
+        ("Tablet Calibration Stretch Tablet:\n\n" +
+        "The multiplier used to stretch the bottom of the tablet's Y axis coordinates.")]
+    public static float bottom_stretch { set; get; }
+
+    [BooleanProperty("Disable Clamping", ""), ToolTip
+        ("Tablet Calibration Stretch Tablet:\n\n" +
+        "Allows the tablet coordinates to exceed the maximum tablet coordinates.")]
+    public static bool disable_clamping { set; get; }
 }
