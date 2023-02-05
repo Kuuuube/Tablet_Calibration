@@ -1,6 +1,6 @@
 # Display Tablet Calibration Guide
 
-When calibrating the tablet make sure to sit in a your normal posture and distance from the tablet. You may end up seeing larger parallax inaccuracies if you calibrate at an odd viewing angle.
+When calibrating the tablet, make sure to sit in your normal posture and distance from the tablet. You may end up seeing larger parallax inaccuracies if you calibrate at an odd viewing angle.
 
 Make sure to drag your pen on the tablet surface while calibrating. If this causes issues with the image in the centering step, temporarily clear the Tip Binding in the Pen Settings tab in OTD.
 
@@ -10,7 +10,7 @@ Both `Tablet Calibration Stretch Tablet` and `Tablet Calibration Stretch Area` c
 
 - Find the [calibration image](./calibration_images/calibration_images.md) matching your tablet's resolution and fullscreen it on your tablet's display. 
 
-    Make sure to fullscreen the image without borders. There should be no window borders, taskbars, menubars, or toolbars around the image (overlays will not cause issues as long as they do not move the image). One method to achieve this is to open the image in a new tab of your browser and press `F11`.
+    There should be no window borders, taskbars, menubars, or toolbars around the image (overlays will not cause issues as long as they do not move the image). One method to achieve this is to open the image in a new tab of your browser and press `F11`.
 
 - Put your pen's tip in the center of the red cross. Check if the tip of your cursor lines up with the tip of the pen. If not, change the applicable offset value.
 
@@ -32,7 +32,7 @@ Both `Tablet Calibration Stretch Tablet` and `Tablet Calibration Stretch Area` c
 
     If the cursor is too close to the center of the tablet, increase the multiplier.
 
-    If the cursor is too close the the side of the tablet, decrease the multiplier.
+    If the cursor is too close to the side of the tablet, decrease the multiplier.
 
 - Repeat the previous step until every side is lined up. Make sure to apply settings inbetween tests. Sometimes it can be hard to perfectly align one side when another side is misaligned so you may need to test each side again after initially lining everything up.
 
