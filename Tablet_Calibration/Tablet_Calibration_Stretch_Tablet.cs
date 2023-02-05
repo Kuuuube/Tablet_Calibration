@@ -86,15 +86,15 @@ public sealed class tablet_calibration_stretch_tablet : tablet_calibration_base
 
     [Property("X Offset"), DefaultPropertyValue(0f), Unit("lines"), ToolTip
         ("Tablet Calibration Stretch Tablet:\n\n" +
-        "The offset used to move the center of the tablet's X axis coordinates.")]
+        "The offset in lines used to move the center of the tablet's X axis coordinates.")]
     public static float x_offset { set; get; }
 
     [Property("Y Offset"), DefaultPropertyValue(0f), Unit("lines"), ToolTip
         ("Tablet Calibration Stretch Tablet:\n\n" +
-        "The offset used to move the center of the tablet's Y axis coordinates.")]
+        "The offset in lines used to move the center of the tablet's Y axis coordinates.")]
     public static float y_offset { set; get; }
 
-    [BooleanProperty("Disable Clamping", ""), ToolTip
+    [BooleanProperty("Disable Clamping", ""), DefaultPropertyValue(true), ToolTip
         ("Tablet Calibration Stretch Tablet:\n\n" +
         "Allows the tablet coordinates to exceed the maximum tablet coordinates.")]
     public static bool disable_clamping { set; get; }

@@ -2,26 +2,12 @@
 
 Filters to make perfect display tablet calibration possible.
 
-## Tablet Calibration Stretch Area:
+## Quick Start Guide
 
-**Left Stretch Multiplier:** The multiplier used to stretch the left side of the tablet area's X axis coordinates.
+[Display Tablet Calibration Guide](./docs/display_tablet_calibration_guide.md)
 
-**Right Stretch Multiplier:** The multiplier used to stretch the right side of the tablet area's X axis coordinates.
+## Filter Settings Documentation
 
-**Top Stretch Multiplier:** The multiplier used to stretch the top of the tablet area's Y axis coordinates.
+[Tablet Calibration Stretch Area](./docs/filter_settings_documentation.md#tablet-calibration-stretch-area)
 
-**Bottom Stretch Multiplier:** The multiplier used to stretch the bottom of the tablet area's Y axis coordinates.
-
-**Disable Clamping:** Allows the tablet area coordinates to exceed the tablet area.
-
-## Tablet Calibration Stretch Tablet:
-
-**Left Stretch Multiplier:** The multiplier used to stretch the left side of the tablet's X axis coordinates.
-
-**Right Stretch Multiplier:** The multiplier used to stretch the right side of the tablet's X axis coordinates.
-
-**Top Stretch Multiplier:** The multiplier used to stretch the top of the tablet's Y axis coordinates.
-
-**Bottom Stretch Multiplier:** The multiplier used to stretch the bottom of the tablet's Y axis coordinates.
-
-**Disable Clamping:** Allows the tablet coordinates to exceed the maximum tablet coordinates.
+[Tablet Calibration Stretch Tablet](./docs/filter_settings_documentation.md#tablet-calibration-stretch-tablet)

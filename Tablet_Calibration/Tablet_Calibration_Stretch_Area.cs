@@ -86,12 +86,12 @@ public sealed class tablet_calibration_stretch_area : tablet_calibration_base
 
     [Property("X Offset"), DefaultPropertyValue(0f), Unit("px"), ToolTip
         ("Tablet Calibration Stretch Area:\n\n" +
-        "The offset used to move the center of the tablet area's X axis coordinates.")]
+        "The offset in pixels used to move the center of the tablet area's X axis coordinates.")]
     public static float x_offset { set; get; }
 
     [Property("Y Offset"), DefaultPropertyValue(0f), Unit("px"), ToolTip
         ("Tablet Calibration Stretch Area:\n\n" +
-        "The offset used to move the center of the tablet area's Y axis coordinates.")]
+        "The offset in pixels used to move the center of the tablet area's Y axis coordinates.")]
     public static float y_offset { set; get; }
 
     [BooleanProperty("Disable Clamping", ""), ToolTip
