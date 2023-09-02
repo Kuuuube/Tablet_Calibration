@@ -67,35 +67,35 @@ public sealed class tablet_calibration_stretch_tablet : tablet_calibration_base
     [Property("Left Stretch Multiplier"), DefaultPropertyValue(1f), ToolTip
         ("Tablet Calibration Stretch Tablet:\n\n" +
         "The multiplier used to stretch the left side of the tablet's X axis coordinates.")]
-    public static float left_stretch { set; get; }
+    public float left_stretch { set; get; }
 
     [Property("Right Stretch Multiplier"), DefaultPropertyValue(1f), ToolTip
         ("Tablet Calibration Stretch Tablet:\n\n" +
         "The multiplier used to stretch the right side of the tablet's X axis coordinates.")]
-    public static float right_stretch { set; get; }
+    public float right_stretch { set; get; }
 
     [Property("Top Stretch Multiplier"), DefaultPropertyValue(1f), ToolTip
         ("Tablet Calibration Stretch Tablet:\n\n" +
         "The multiplier used to stretch the top of the tablet's Y axis coordinates.")]
-    public static float top_stretch { set; get; }
+    public float top_stretch { set; get; }
 
     [Property("Bottom Stretch Multiplier"), DefaultPropertyValue(1f), ToolTip
         ("Tablet Calibration Stretch Tablet:\n\n" +
         "The multiplier used to stretch the bottom of the tablet's Y axis coordinates.")]
-    public static float bottom_stretch { set; get; }
+    public float bottom_stretch { set; get; }
 
     [Property("X Offset"), DefaultPropertyValue(0f), Unit("lines"), ToolTip
         ("Tablet Calibration Stretch Tablet:\n\n" +
         "The offset in lines used to move the center of the tablet's X axis coordinates.")]
-    public static float x_offset { set; get; }
+    public float x_offset { set; get; }
 
     [Property("Y Offset"), DefaultPropertyValue(0f), Unit("lines"), ToolTip
         ("Tablet Calibration Stretch Tablet:\n\n" +
         "The offset in lines used to move the center of the tablet's Y axis coordinates.")]
-    public static float y_offset { set; get; }
+    public float y_offset { set; get; }
 
     [BooleanProperty("Disable Clamping", ""), DefaultPropertyValue(true), ToolTip
         ("Tablet Calibration Stretch Tablet:\n\n" +
         "Allows the tablet coordinates to exceed the maximum tablet coordinates.")]
-    public static bool disable_clamping { set; get; }
+    public bool disable_clamping { set; get; }
 }

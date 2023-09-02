@@ -63,7 +63,7 @@ public abstract class tablet_calibration_base : IPositionedPipelineElement<IDevi
         return default;
     }
 
-    protected static Vector2 clamp(Vector2 input)
+    public Vector2 clamp(Vector2 input)
     {
         return new Vector2(
         Math.Clamp(input.X, -1, 1),
@@ -71,7 +71,7 @@ public abstract class tablet_calibration_base : IPositionedPipelineElement<IDevi
         );
     }
 
-    protected static int in_quadrant(Vector2 input)
+    public int in_quadrant(Vector2 input)
     {
         //Due to how OTD sends input, the Y axis ends up flipped. Normally the Y axis for these quadrants would be reversed.
         //for the quadrant checks, true = disabled
